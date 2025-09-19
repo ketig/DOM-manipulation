@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript DOM მანიპულაცია - სესიის მასალა</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🚀 JavaScript DOM მანიპულაცია</h1>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showSection('session-plan')">📋 სესიის გეგმა</button>
+            <button class="nav-tab" onclick="showSection('dom-understanding')">🌐 DOM გაგება</button>
+            <button class="nav-tab" onclick="showSection('script-integration')">📜 Script ინტეგრაცია</button>
+            <button class="nav-tab" onclick="showSection('defer-async')">⚡ Defer vs Async</button>
+            <button class="nav-tab" onclick="showSection('element-creation')">🔨 ელემენტების შექმნა</button>
+            <button class="nav-tab" onclick="showSection('attributes-manipulation')">🏷️ Attributes მანიპულაცია</button>
+            <button class="nav-tab" onclick="showSection('query-selectors')">🔍 Query Selectors</button>
+            <button class="nav-tab" onclick="showSection('events-basics')">🎪 Events საფუძვლები</button>
+            <button class="nav-tab" onclick="showSection('event-handlers')">🎯 Event Handlers</button>
+            <button class="nav-tab" onclick="showSection('prevent-default')">🚫 preventDefault</button>
+            <button class="nav-tab" onclick="showSection('interactive-demos')">🎨 ინტერაქტიული დემოები</button>
+            <button class="nav-tab" onclick="showSection('practical-projects')">💻 პრაქტიკული პროექტები</button>
+            <button class="nav-tab" onclick="showSection('homework')">📝 სახლის დავალება</button>
+            <button class="nav-tab" onclick="showSection('resources')">📚 რესურსები</button>
+            <button class="nav-tab" onclick="showSection('quiz')">🎉 ქვიზი</button>
+        </div>
+
+        <!-- Session Plan -->
+        <div id="session-plan" class="section active">
+            <h2>📋 სესიის გეგმა</h2>
+            <h3>🎯 მიზანი</h3>
+            <p>JavaScript-ის გამოყენებით DOM-ის მანიპულაცია და ინტერაქტიული ვებ გვერდების შექმნა.</p>
+
+            <h3>📚 სწავლის შედეგები</h3>
+            <ul>
+                <li>DOM-ის სტრუქტურის გაგება</li>
+                <li>ელემენტების მოძიება და შექმნა</li>
+                <li>Attributes-ების მანიპულაცია</li>
+                <li>Events-ების მართვა</li>
+                <li>ინტერაქტიული ინტერფეისების შექმნა</li>
+            </ul>
+
+            <h3>⏰ დროის განაწილება (90 წუთი)</h3>
+            <ul>
+                <li><strong>DOM გაგება:</strong> 15 წუთი</li>
+                <li><strong>Script ინტეგრაცია:</strong> 10 წუთი</li>
+                <li><strong>ელემენტების მანიპულაცია:</strong> 20 წუთი</li>
+                <li><strong>Query Selectors:</strong> 10 წუთი</li>
+                <li><strong>Events:</strong> 20 წუთი</li>
+                <li><strong>პრაქტიკული დავალებები:</strong> 15 წუთი</li>
+            </ul>
+        </div>
+
+        <!-- DOM Understanding -->
+        <div id="dom-understanding" class="section">
+            <h2>🌐 DOM გაგება</h2>
+
+            <h3>🤔 რა არის DOM?</h3>
+            <p><strong>DOM (Document Object Model)</strong> - HTML დოკუმენტის ხის სტრუქტურა, რომელიც JavaScript-ს
+                საშუალებას აძლევს ვებ გვერდთან ინტერაქციისთვის.</p>
+
+            <div class="example-box">
+                <h4>მაგალითი: DOM ხე</h4>
+                <pre class="code-block">
+HTML:
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;ჩემი გვერდი&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;სათაური&lt;/h1&gt;
+    &lt;p&gt;პარაგრაფი&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+
+DOM ხე:
+document
+  └─ html
+      ├─ head
+      │   └─ title
+      └─ body
+          ├─ h1
+          └─ p
+                </pre>
+            </div>
+
+            <h3>🔑 ძირითადი ცნებები</h3>
+            <ul>
+                <li><strong>Node:</strong> DOM-ის ყველა ელემენტი</li>
+                <li><strong>Element:</strong> HTML ტეგები</li>
+                <li><strong>Text Node:</strong> ტექსტური შინაარსი</li>
+                <li><strong>Attribute:</strong> ელემენტის თვისებები</li>
+            </ul>
+
+            <div class="exercise-box">
+                <h4>🏋️ ვარჯიში 1</h4>
+                <p>ახსენით თქვენი სიტყვებით, რა არის DOM და რატომ არის ის მნიშვნელოვანი ვებ დეველოპმენტში?</p>
+            </div>
+        </div>
+
+        <!-- Script Integration -->
+        <div id="script-integration" class="section">
+            <h2>📜 Script ინტეგრაცია</h2>
+
+            <h3>🔧 JavaScript-ის HTML-ში ჩართვის გზები</h3>
+
+            <div class="example-box">
+                <h4>1. Inline Script:</h4>
+                <pre class="code-block">
+&lt;script&gt;
+    console.log("გამარჯობა!");
+&lt;/script&gt;
+                </pre>
+            </div>
+
+            <div class="example-box">
+                <h4>2. External Script:</h4>
+                <pre class="code-block">
+&lt;script src="script.js"&gt;&lt;/script&gt;
+                </pre>
+            </div>
+
+            <div class="example-box">
+                <h4>3. Event Attribute:</h4>
+                <pre class="code-block">
+&lt;button onclick="alert('ღილაკზე დაწკაპუნება!')"&gt;დააჭირე&lt;/button&gt;
+                </pre>
+            </div>
+
+            <h3>📍 Script-ის განთავსების ადგილები</h3>
+            <ul>
+                <li><strong>&lt;head&gt; სექციაში:</strong> მომზადება გვერდის ჩატვირთვამდე</li>
+                <li><strong>&lt;body&gt;-ის ბოლოში:</strong> HTML-ის ჩატვირთვის შემდეგ</li>
+                <li><strong>DOMContentLoaded:</strong> DOM-ის მზადყოფნის შემოწმება</li>
+            </ul>
+
+            <div class="example-box">
+                <h4>DOMContentLoaded მაგალითი:</h4>
+                <pre class="code-block">
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM მზადაა!');
+    // კოდი გაეშვება DOM-ის ჩატვირთვის შემდეგ
+});
+                </pre>
+            </div>
+
+            <div class="exercise-box">
+                <h4>🏋️ ვარჯიში 2</h4>
+                <p>შექმენით HTML გვერდი, რომელიც სხვადასხვა მეთოდით JavaScript-ს იყენებს და console-ში გამოიტანს
+                    სხვადასხვა შეტყობინებას.</p>
+            </div>
+        </div>
+
+        <!-- Defer vs Async -->
+        <div id="defer-async" class="section">
+            <h2>⚡ Defer vs Async</h2>
+
+            <h3>🔄 Script-ის ჩატვირთვის რეჟიმები</h3>
+
+            <div class="example-box">
+                <h4>სტანდარტული ჩატვირთვა:</h4>
+                <pre class="code-block">
+&lt;script src="script.js"&gt;&lt;/script&gt;
+// HTML parsing სჩერდება, Script ჩაიტვირთება და გაეშვება
+                </pre>
+            </div>
+
+            <div class="example-box">
+                <h4>Async Attribute:</h4>
+                <pre class="code-block">
+&lt;script src="script.js" async&gt;&lt;/script&gt;
+// HTML parsing და Script ჩატვირთვა პარალელურად ხდება
+// Script გაეშვება ჩატვირთვის შემდეგ (HTML parsing შეიძლება შეჩერდეს)
+                </pre>
+            </div>
+
+            <div class="example-box">
+                <h4>Defer Attribute:</h4>
+                <pre class="code-block">
+&lt;script src="script.js" defer&gt;&lt;/script&gt;
+// HTML parsing და Script ჩატვირთვა პარალელურად ხდება
+// Script გაეშვება HTML parsing-ის დასრულების შემდეგ
+                </pre>
+            </div>
+
+            <h3>📊 როდის რას გამოვიყენოთ?</h3>
+            <ul>
+                <li><strong>Defer:</strong> როცა Script-ს DOM ჭირდება (ყველაზე ხშირი)</li>
+                <li><strong>Async:</strong> დამოუკიდებელი Script-ები (Analytics, Ads)</li>
+                <li><strong>როცა არ არის Attribute:</strong> კრიტიკული Script-ები</li>
+            </ul>
+
+            <div class="exercise-box">
+                <h4>🏋️ ვარჯიში 3</h4>
+                <p>შექმენით 3 განსხვავებული script ტეგი defer, async და ჩვეულებრივი ატრიბუტებით. ახსენით, როდის რომელი
+                    უნდა გამოიყენოს.</p>
+            </div>
+        </div>
+
+        <!-- Element Creation -->
+        <div id="element-creation" class="section">
+            <h2>🔨 ელემენტების შექმნა</h2>
+
+            <h3>🏗️ ახალი ელემენტის შექმნა</h3>
+
+            <div class="example-box">
+                <h4>createElement მეთოდი:</h4>
+                <pre class="code-block">
+// ახალი პარაგრაფის შექმნა
+const newParagraph = document.createElement('p');
+newParagraph.textContent = 'ეს არის ახალი პარაგრაფი';
+
+// გვერდზე დამატება
+document.body.appendChild(newParagraph);
+                </pre>
+            </div>
+
+            <div class="example-box">
+                <h4>innerHTML გამოყენება:</h4>
+                <pre class="code-block">
+const container = document.getElementById('container');
+container.innerHTML = `
+    &lt;h2&gt;ახალი სათაური&lt;/h2&gt;
+    &lt;p&gt;ახალი პარაგრაფი&lt;/p&gt;
+    &lt;button onclick="alert('მუშაობს!')"&gt;ღილაკი&lt;/button&gt;
+`;
+                </pre>
+            </div>
+
+            <h3>📍 ელემენტის განთავსება</h3>
+            <ul>
+                <li><strong>appendChild():</strong> ბოლო შვილად დამატება</li>
+                <li><strong>insertBefore():</strong> კონკრეტული ელემენტის წინ</li>
+                <li><strong>replaceChild():</strong> ელემენტის ჩანაცვლება</li>
+                <li><strong>removeChild():</strong> ელემენტის წაშლა</li>
+            </ul>
+
+            <div class="example-box">
+                <h4>პრაქტიკული მაგალითი:</h4>
+                <pre class="code-block">
+// ახალი ლისტის შექმნა
+const list = document.createElement('ul');
+
+// ლისტის ელემენტების დამატება
+const items = ['ვაშლი', 'ბანანი', 'ყურძენი'];
+items.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = item;
+    list.appendChild(li);
+});
+
+// გვერდზე დამატება
+document.body.appendChild(list);
+                </pre>
+            </div>
+
+            <div class="exercise-box">
+                <h4>🏋️ ვარჯიში 4</h4>
+                <p>შექმენით ფუნქცია, რომელიც dinamiურად შექმნის კარტის სტრუქტურას (div > img + h3 + p + button) და
+                    დაამატებს მას გვერდზე.</p>
+            </div>
+
+            <div class="demo-area">
+                <h4>📺 დემო:</h4>
+                <button onclick="createDemoElement()">ახალი ელემენტის შექმნა</button>
+                <div id="demo-container"></div>
+            </div>
+        </div>
+
+        <!-- Attributes Manipulation -->
+        <div id="attributes-manipulation" class="section">
+            <h2>🏷️ Attributes მანიპულაცია</h2>
+
+            <h3>🔧 Attributes-ების მართვა</h3>
+
+            <div class="example-box">
+                <h4>getAttribute და setAttribute:</h4>
+                <pre class="code-block">
+const image = document.querySelector('img');
+
+// Attribute-ის მოძიება
+const src = image.getAttribute('src');
+console.log(src);
+
+// Attribute-ის დაყენება
+image.setAttribute('src', 'new-image.jpg');
+image.setAttribute('alt', 'ახალი სურათი');
+
+// Attribute-ის წაშლა
+image.removeAttribute('title');
+                </pre>
+            </div>
+
+            <div class="example-box">
+                <h4>პირდაპირი Attribute წვდომა:</h4>
+                <pre class="code-block">
+const input = document.querySelector('input');
+
+// მნიშვნელობის მიღება და დაყენება
+console.log(input.value);
+input.value = 'ახალი ტექსტი';
+
+// Boolean Attributes
+input.disabled = true;
+input.checked = false;
+
+// CSS Class-ების მანიპულაცია
+input.className = 'form-control active';
+                </pre>
+            </div>
+
+            <h3>🎨 CSS Classes-ების მართვა</h3>
+
+            <div class="example-box">
+                <h4>classList API:</h4>
+                <pre class="code-block">
+const element = document.querySelector('.my-element');
+
+// Class-ის დამატება
+element.classList.add('active');
+element.classList.add('highlighted', 'important');
+
+// Class-ის წაშლა
+element.classList.remove('inactive');
+
+// Class-ის toggle
+element.classList.toggle('hidden');
+
+// Class-ის შემოწმება
+if (element.classList.contains('active')) {
+    console.log('ელემენტი აქტიურია');
+}
+                </pre>
+            </div>
+
+            <div class="exercise-box">
+                <h4>🏋️ ვარჯიში 5</h4>
+                <p>შექმენით ღილაკი, რომელიც:</p>
+                <ul>
+                    <li>პირველ დაწკაპუნებაზე ყვითელი ფონი შეცვლის</li>
+                    <li>მეორეზე - წითელი</li>
+                    <li>მესამეზე - თავდაპირველ მდგომარეობაში დაბრუნდება</li>
+                </ul>
+            </div>
+
+            <div class="demo-area">
+                <h4>📺 დემო:</h4>
+                <div id="color-demo"
+                    style="width: 100px; height: 100px; background: gray; margin: 10px; border-radius: 10px;"></div>
+                <button onclick="toggleColor()">ფერის შეცვლა</button>
+                <button onclick="addClass()">Class დამატება</button>
+                <button onclick="removeClass()">Class წაშლა</button>
+            </div>
+        </div>
+
+        <!-- Query Selectors -->
+        <div id="query-selectors" class="section">
+            <h2>🔍 Query Selectors</h2>
+
+            <h3>🎯 ელემენტების მოძიება</h3>
+
+            <div class="example-box">
+                <h4>ძირითადი Selectors:</h4>
+                <pre class="code-block">
+// ID-ით მოძიება
+const header = document.getElementById('header');
+
+// Class-ით მოძიება
+const buttons = document.getElementsByClassName('btn');
+
+// Tag-ით მოძიება
+const paragraphs = document.getElementsByTagName('p');
+
+// CSS Selector-ით (პირველი მატჩი)
+const firstButton = document.querySelector('.btn');
+const navList = document.querySelector('#nav ul');
+
+// CSS Selector-ით (ყველა მატჩი)
+const allButtons = document.querySelectorAll('.btn');
+const activeElements = document.querySelectorAll('.active');
+                </pre>
+            </div>
+
+            <h3>🔄 რთული Selectors</h3>
+
+            <div class="example-box">
+                <h4>Advanced Selectors:</h4>
+                <pre class="code-block">
+// Attribute Selectors
+const emailInputs = document.querySelectorAll('input[type="email"]');
+const requiredFields = document.querySelectorAll('[required]');
+
+// Pseudo-class Selectors
+const firstChild = document.querySelector('li:first-child');
+const lastParagraph = document.querySelector('p:last-of-type');
+
+// Combination Selectors
+const articleHeaders = document.querySelectorAll('article h2');
+const directChildren = document.querySelectorAll('nav > ul > li');
+
+// Multiple Selectors
+const headings = document.querySelectorAll('h1, h2, h3');
+                </pre>
+            </div>
+
+            <h3>⚡ NodeList vs HTMLCollection</h3>
+            <ul>
+                <li><strong>NodeList:</strong> querySelectorAll() აბრუნებს, forEach() მეთოდი აქვს</li>
+                <li><strong>HTMLCollection:</strong> getElementsBy* მეთოდები აბრუნებენ, Live Collection</li>
+            </ul>
+
+            <div class="example-box">
+                <h4>NodeList-ზე მუშაობა:</h4>
+                <pre class="code-block">
+const buttons = document.querySelectorAll('.btn');
+
+// forEach გამოყენება
+buttons.forEach(button => {
+    button.addEventListener('click', function() {
+        console.log('ღილაკზე დაწკაპუნება!');
+    });
+});
+
+// Array-ად გადაყვანა
+const buttonsArray = Array.from(buttons);
+                </pre>
+            </div>
+
+            <div class="exercise-box">
+                <h4>🏋️ ვარჯიში 6</h4>
+                <p>შექმენით HTML სტრუქტურა რამდენიმე ღილაკით და:</p>
+                <ul>
+                    <li>მოძებნეთ ყველა ღილაკი</li>
+                    <li>დაამატეთ click Event ყველას</li>
+                    <li>გააკეთეთ რომ თითოეული ღილაკი სხვა ფერს იცვლიდეს</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Events Basics -->
+        <div id="events-basics" class="section">
+            <h2>🎪 Events საფუძვლები</h2>
+
+            <h3>🎭 რა არის Event?</h3>
+            <p>Event არის მოვლენა, რომელიც ხდება ვებ გვერდზე - მაგ. click, scroll, keypress, load და სხვა.</p>
+
+            <h3>📝 ყველაზე ხშირი Events</h3>
+            <ul>
+                <li><strong>click:</strong> ღილაკზე ან ელემენტზე დაწკაპუნება</li>
+                <li><strong>mouseover/mouseout:</strong> მაუსის შესვლა/გასვლა</li>
+                <li><strong>keydown/keyup:</strong> კლავიშების დაჭერა/გაშვება</li>
+                <li><strong>submit:</strong> ფორმის გაგზავნა</li>
+                <li><strong>load:</strong> გვერდის ჩატვირთვა</li>
+                <li><strong>resize:</strong> ფანჯრის ზომის შეცვლა</li>
+            </ul>
+
+            <div class="example-box">
+                <h4>addEventListener მეთოდი:</h4>
+                <pre class="code-block">
+const button = document.querySelector('#myButton');
+
+// Event Listener-ის დამატება
+button.addEventListener('click', function() {
+    console.log('ღილაკზე დაწკაპუნდა!');
+});
+
+// Arrow Function-ით
+button.addEventListener('click', () => {
+    alert('Hello World!');
+});
+
+// Named Function-ით
+function handleClick() {
+    console.log('Button clicked!');
+}
+button.addEventListener('click', handleClick);
+                </pre>
+            </div>
+
+            <div class="example-box">
+                <h4>Event Object:</h4>
+                <pre class="code-block">
+button.addEventListener('click', function(event) {
+    console.log('Event Type:', event.type); // click
+    console.log('Target Element:', event.target); // clicked button
+    console.log('Mouse Position:', event.clientX, event.clientY); // mouse coordinates
+});
+                </pre>
+            </div>
+
+            <div class="exercise-box">
+                <h4>🏋️ ვარჯიში 7</h4>
+                <p>შექმენით HTML გვერდი რამდენიმე ღილაკით და სხვადასხვა Event Listener-ები დაამატეთ (click, mouseover,
+                    keydown).</p>
+            </div>
+        </div>
+
+        <!-- Event Handlers -->
+        <div id="event-handlers" class="section">
+            <h2>🎯 Event Handlers</h2>
+
+            <h3>🔧 Event Handlers-ის გამოყენება</h3>
+
+            <div class="example-box">
+                <h4>Inline Event Handler:</h4>
+                <pre class="code-block">
+&lt;button onclick=" alert('ღილაკზე დაწკაპუნება!')"&gt;დააჭირე&lt;/button&gt; </pre>
+            </div>
+
+            <div class="example-box">
+                <h4>JavaScript-ში Event Handler:</h4>
+                <pre class="code-block">
+const button = document.querySelector('#myButton');
+button.onclick = function() {
+    alert('ღილაკზე დაწკაპუნება!');
+};
+                </pre>
+            </div>
+
+            <h3>⚠️ Inline vs JavaScript Event Handlers</h3>
+            <ul>
+                <li><strong>Inline:</strong> მარტივი, მაგრამ არ არის რეკომენდებული დიდი პროექტებისთვის</li>
+                <li><strong>JavaScript:</strong> უკეთესი კონტროლი და მრავალჯერადი Event Listener-ების მხარდაჭერა</li>
+            </ul>
+
+            <div class="example-box">
+                <h4>მრავალჯერადი Event Listener:</h4>
+                <pre class="code-block">
+const button = document.querySelector('#myButton');
+button.addEventListener('click', function() {
+    console.log('პირველი Listener');
+});
+button.addEventListener('click', function() {
+    console.log('მეორე Listener');
+});
+                </pre>
+            </div>
+
+            <div class="exercise-box">
+                <h4>🏋️ ვარჯიში 8</h4>
+                <p>შექმენით ღილაკი, რომელსაც რამდენიმე Event Listener ექნება (click, mouseover) და თითოეულზე
+                    განსხვავებული ქმედება შესრულდება.</p>
+            </div>
+        </div>
+
+        <!-- Prevent Default -->
+        <div id="prevent-default" class="section">
+            <h2>🚫 preventDefault</h2>
+
+            <h3>❓ რა არის preventDefault?</h3>
+            <p>preventDefault() მეთოდი საშუალებას იძლევა თავიდან ავიცილოთ ელემენტის ნაგულისხმევი ქმედება Event-ის დროს.
+            </p>
+
+            <h3>🔧 გამოყენების მაგალითები</h3>
+
+            <div class="example-box">
+                <h4>ფორმის გაგზავნის შეჩერება:</h4>
+                <pre class="code-block">
+const form = document.querySelector('form');
+form.addEventListener('submit', function(event) {
+    event.preventDefault(); // ფორმის ნაგულისხმევი გაგზავნის შეჩერება
+    console.log('ფორმა არ გაიგზავნა!');
+});
+                </pre>
+            </div>
+
+            <div class=" example-box">
+                <h4>ლინკის ნაგულისხმევი ქმედების შეჩერება:</h4>
+                <pre class="code-block">
+const link = document.querySelector('a');
+link.addEventListener('click', function(event) {
+    event.preventDefault(); // ლინკის ნაგულისხმევი გადამისამართების შეჩერება
+    console.log('ლინკი არ გაიხსნა!');
+});
+                </pre>
+            </div>
+
+            <div class=" exercise-box">
+                <h4>🏋️ ვარჯიში 9</h4>
+                <p>შექმენით HTML ფორმა და ლინკი. გამოიყენეთ preventDefault() ორივე ელემენტზე, რათა მათი ნაგულისხმევი
+                    ქმედებები შეჩერდეს და კონსოლში შეტყობინება გამოიტანოთ.</p>
+            </div>
+        </div>
+
+        <!-- Interactive Demos -->
+        <div id="interactive-demos" class="section">
+            <h2>🎨 ინტერაქტიული დემოები</h2>
+
+            <h3>🖼️ ელემენტების დინამიური შექმნა და სტილიზაცია</h3>
+            <p>დაწერეთ კოდი, რომელიც დინამიურად შექმნის ელემენტებს და მათ სტილებს შეცვლის.</p>
+
+            <div class="demo-area">
+                <h4>📺 დემო:</h4>
+                <button onclick="createStyledElement()">სტილიზებული ელემენტის შექმნა</button>
+                <div id="styled-demo-container"></div>
+            </div>
+
+            <h3>🛠️ Events-ის გამოყენებით ელემენტების მანიპულაცია</h3>
+            <p>დაწერეთ კოდი, რომელიც სხვადასხვა Event-ის გამოყენებით შეცვლის ელემენტების თვისებებს.</p>
+
+            <div class="demo-area">
+                <h4>📺 დემო:</h4>
+                <button id="event-demo-button">დააჭირე ან გადაატრიალე მაუსი</button>
+                <div id="event-demo-output"></div>
+            </div>
+        </div>
+
+        <!-- Practical Projects -->
+        <div id="practical-projects" class="section">
+            <h2>💻 პრაქტიკული პროექტები</h2>
+
+            <h3>📝 To-Do List აპლიკაცია</h3>
+            <p>შექმენით მარტივი To-Do List აპლიკაცია, სადაც მომხმარებელი შეძლებს დავალებების დამატებას, წაშლას და
+                შესრულების მონიშვნას.</p>
+
+            <div class="project-instructions">
+                <h4>ინსტრუქციები:</h4>
+                <ul>
+                    <li>HTML ფორმა ახალი დავალების შესაყვანად</li>
+                    <li>დავალებების დინამიური ჩამონათვალი</li>
+                    <li>დავალების წაშლის და შესრულების ფუნქციონალი</li>
+                </ul>
+            </div>
+
+            <h3>🌐 Image Gallery</h3>
+            <p>შექმენით სურათების გალერეა, სადაც მომხმარებელი შეძლებს სურათების დინამიურ დამატებას და წაშლას.</p>
+
+            <div class="project-instructions">
+                <h4>ინსტრუქციები:</h4>
+                <ul>
+                    <li>HTML ფორმა ახალი სურათის URL-ის შესაყვანად</li>
+                    <li>სურათების დინამიური გალერეა</li>
+                    <li>სურათის წაშლის ფუნქციონალი</li>
+                </ul>
+            </div>
+
+            <div class="exercise-box">
+                <h4>🏋️ ვარჯიში 10</h4>
+                <p>აირჩიეთ ერთი პროექტი (To-Do List ან Image Gallery) და განახორციელეთ იგი JavaScript-ის DOM
+                    მანიპულაციის გამოყენებით.</p>
+            </div>
+        </div>
+
+        <!-- Homework -->
+        <div id="homework" class="section">
+            <h2>📝 სახლის დავალება</h2>
+
+            <h3>📚 დავალების აღწერა</h3>
+            <p>დაწერეთ JavaScript კოდი, რომელიც შეასრულებს შემდეგ ფუნქციებს:</p>
+            <ul>
+                <li>HTML ელემენტების დინამიური შექმნა და დამატება გვერდზე</li>
+                <li>Attributes-ების მანიპულაცია (set, get, remove)</li>
+                <li>Events-ის გამოყენება (click, mouseover, submit)</li>
+                <li>preventDefault-ის გამოყენება ფორმის გაგზავნის დროს</li>
+            </ul>
+
+            <h3>🛠️ დამატებითი დავალებები</h3>
+            <ul>
+                <li>შექმენით მარტივი To-Do List აპლიკაცია</li>
+                <li>შექმენით სურათების გალერეა დინამიური დამატებით და წაშლით</li>
+            </ul>
+        </div>
+
+        <!-- Resources -->
+        <div id="resources" class="section">
+            <h2>📚 რესურსები</h2>
+
+            <h3>🌐 ონლაინ რესურსები</h3>
+            <ul>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model" target="_blank">MDN
+                        Web Docs - Document Object Model (DOM)</a></li>
+                <li><a href="https://javascript.info/dom-nodes" target="_blank">JavaScript.info - DOM Nodes</a></li>
+                <li><a href="https://www.w3schools.com/js/js_htmldom.asp" target="_blank">W3Schools - HTML DOM</a></li>
+                <li><a href="https://css-tricks.com/dom/" target="_blank">CSS-Tricks - A Complete Guide to the DOM</a>
+                </li>
+            </ul>
+
+            <h3>🎥 ვიდეო ლექციები</h3>
+            <ul>
+                <li><a href="https://www.youtube.com/watch?v=0ik6X4DJKCc" target="_blank">JavaScript DOM Tutorial for
+                        Beginners - YouTube</a></li>
+                <li><a href="https://www.youtube.com/watch?v=1Rs2ND1ryYc" target="_blank">Learn the DOM in 20 Minutes -
+                        YouTube</a></li>
+                <li><a href="https://www.youtube.com/watch?v=Ukg_U3CnJWI" target="_blank">JavaScript DOM Manipulation -
+                        Full Course - YouTube</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
